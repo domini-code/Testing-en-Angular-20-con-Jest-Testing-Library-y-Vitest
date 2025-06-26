@@ -1,25 +1,14 @@
-import { TestBed } from '@angular/core/testing';
+import { render, screen } from '@testing-library/angular';
 import { App } from './app';
 
 describe('App', () => {
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [App],
-    }).compileComponents();
-  });
+  it('Renders the title', async () => {
+    // Arrange & Act
+    await render(App);
 
-  it('Renders the title', () => {
-    //Arrange (organizar)
-    const fixture = TestBed.createComponent(App);
+    // Assert
+    const heading = screen.getByRole('heading', { level: 1 });
 
-    // Act (actuar)
-    fixture.detectChanges();
-
-    // Asset (afirmar)
-    const compiled = fixture.nativeElement as HTMLElement;
-
-    expect(compiled.querySelector('h1')?.textContent).toContain(
-      'Hello, dominicode'
-    );
+    expect(heading).toHaveTextContent('Hello, dominicode');
   });
 });
