@@ -1,0 +1,33 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <fieldset>
+    <legend>Feedback Form</legend>
+    <div>
+      <label for="name">Name</label>
+      <input id="name" type="text" formControlName="name" />
+      @if (form.get('name')?.hasError('required')) {
+      <div style="color: red; font-size: 0.9em;">
+        Name is required.
+      </div>
+      }
+    </div>
+    <div>
+      <label for="shirtSize">Shirt Size</label>
+      <select id="shirtSize" formControlName="shirtSize">
+        @for (size of shirtSizes; track $index) {
+        <option [value]="size">
+          {{ size }}
+        </option>
+        }
+      </select>
+      @if (form.get('shirtSize')?.hasError('required')) {
+      <div style="color: red; font-size: 0.9em;">
+        Size is required.
+      </div>
+      }
+    </div>
+
+    <button type="submit" [disabled]="form.invalid">
+      Send Feedback
+    </button>
+  </fieldset>
+</form>
