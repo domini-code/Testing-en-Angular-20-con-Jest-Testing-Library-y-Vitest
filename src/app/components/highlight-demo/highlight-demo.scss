@@ -1,0 +1,232 @@
+.demo {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  /* Element: demo__title */
+  &__title {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #343a40;
+  }
+}
+
+/* Block: tabs */
+.tabs {
+  /* Element: tabs__navigation */
+  &__navigation {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid #e9ecef;
+    padding-bottom: 1rem;
+  }
+
+  /* Element: tabs__button */
+  &__button {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    background: #f8f9fa;
+    border-radius: 8px 8px 0 0;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: #e9ecef;
+    }
+
+    /* Modifier: tabs__button--active */
+    &--active {
+      background: #007bff;
+      color: white;
+    }
+  }
+
+  /* Element: tabs__content */
+  &__content {
+    min-height: 500px;
+  }
+}
+
+/* Block: config */
+.config {
+  /* Element: config__panel */
+  &__panel {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    border: 1px solid #e9ecef;
+  }
+
+  /* Element: config__row */
+  &__row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+
+    /* Element: config__label */
+    &-label {
+      min-width: 150px;
+      font-weight: 500;
+    }
+
+    /* Element: config__input */
+    &-input,
+    &-select {
+      padding: 0.5rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+  }
+}
+
+/* Block: examples */
+.examples {
+  /* Element: examples__container */
+  &__container {
+    margin-bottom: 2rem;
+  }
+
+  /* Element: examples__section */
+  &__section {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border: 1px solid #eee;
+    border-radius: 8px;
+
+    /* Element: examples__title */
+    &-title {
+      color: #343a40;
+      margin-bottom: 1rem;
+    }
+  }
+
+  /* Element: examples__demo */
+  &__demo {
+    display: inline-block;
+    padding: 1rem 2rem;
+    margin: 0.5rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s ease;
+
+    &:hover {
+      border-color: #007bff;
+    }
+  }
+
+  /* Element: examples__info */
+  &__info {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 4px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Block: predefined */
+.predefined {
+  /* Element: predefined__examples */
+  &__examples {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  /* Element: predefined__btn */
+  &__btn {
+    padding: 1rem;
+    border: 2px solid #007bff;
+    background: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    /* Modifier: predefined__btn--active */
+    &--active {
+      background: #007bff;
+      color: white;
+      transform: scale(1.05);
+    }
+  }
+
+  /* Element: predefined__card */
+  &__card {
+    padding: 1rem;
+    border: 2px solid #28a745;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+
+    /* Modifier: predefined__card--expanded */
+    &--expanded {
+      transform: scale(1.1);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      background: #d4edda;
+    }
+  }
+
+  /* Element: predefined__input */
+  &__input {
+    width: 100%;
+    border: 2px solid #6c757d;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+
+    /* Modifier: predefined__input--focused */
+    &--focused {
+      border-color: #007bff;
+      box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+    }
+  }
+
+  /* Element: predefined__hover */
+  &__hover {
+    padding: 1rem;
+    border: 2px solid #6f42c1;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+
+    /* Modifier: predefined__hover--effect */
+    &--effect {
+      background: #6f42c1;
+      color: white;
+      transform: translateY(-2px);
+    }
+  }
+}
+
+/* Toggle classes for directive */
+.btn-active {
+  background: #007bff !important;
+  color: white !important;
+  transform: scale(1.05) !important;
+}
+
+.card-expanded {
+  transform: scale(1.1) !important;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2) !important;
+  background: #d4edda !important;
+}
+
+.input-focused {
+  border-color: #007bff !important;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25) !important;
+}
+
+.hover-effect {
+  background: #6f42c1 !important;
+  color: white !important;
+  transform: translateY(-2px) !important;
+}

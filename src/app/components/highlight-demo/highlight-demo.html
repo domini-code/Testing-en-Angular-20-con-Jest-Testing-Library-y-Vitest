@@ -1,0 +1,161 @@
+
+    <div class="demo">
+      <h2 class="demo__title">🎨 Directives Demo - Module 9</h2>
+
+      <div class="tabs__navigation">
+        <button
+          class="tabs__button"
+          [class.tabs__button--active]="activeTab() === 'toggle'"
+          (click)="activeTab.set('toggle')"
+        >
+          🔄 ToggleClassDirective
+        </button>
+      </div>
+
+      <!-- Tab Content: ToggleClassDirective -->
+      @if (activeTab() === 'toggle') {
+      <div class="tabs__content">
+        <h3 class="examples__section-title">🔄 ToggleClassDirective - Configuration</h3>
+
+        <div class="config__panel">
+          <div class="config__row">
+            <label class="config__row-label" for="toggle-class">Classes to Toggle:</label>
+            <input
+              id="toggle-class"
+              type="text"
+              class="config__row-input"
+              [(ngModel)]="toggleClass"
+              placeholder="e.g: active selected highlight"
+            />
+          </div>
+
+          <div class="config__row">
+            <label class="config__row-label" for="toggle-trigger-event">Evento Trigger:</label>
+            <select id="toggle-trigger-event" class="config__row-select" [(ngModel)]="toggleTriggerEvent">
+              <option value="click">Click</option>
+              <option value="dblclick">Double Click</option>
+              <option value="mouseenter">Mouse Enter</option>
+              <option value="focus">Focus</option>
+              <option value="keydown">Keydown</option>
+            </select>
+          </div>
+
+          <div class="config__row">
+            <label class="config__row-label" for="toggle-mode">Modo Toggle:</label>
+            <select id="toggle-mode" class="config__row-select" [(ngModel)]="toggleMode">
+              <option value="multiple">Multiple (Permanente)</option>
+              <option value="single">Single (Temporal)</option>
+            </select>
+          </div>
+
+          <div class="config__row">
+            <label class="config__row-label" for="toggle-initial-state">Estado Inicial:</label>
+            <input
+              id="toggle-initial-state"
+              type="checkbox"
+              class="config__row-input"
+              [(ngModel)]="toggleInitialState"
+            />
+          </div>
+
+          <div class="config__row">
+            <label class="config__row-label" for="toggle-disabled">Disabled:</label>
+            <input
+              id="toggle-disabled"
+              type="checkbox"
+              class="config__row-input"
+              [(ngModel)]="toggleDisabled"
+            />
+          </div>
+
+          <div class="config__row">
+            <label class="config__row-label" for="prevent-condition">Prevent Toggle:</label>
+            <select
+              id="prevent-condition"
+              class="config__row-select"
+              [(ngModel)]="selectedPreventCondition"
+              (ngModelChange)="updatePreventConditions()"
+            >
+              <option value="">None</option>
+              <option value="ctrlKey">Ctrl + Click</option>
+              <option value="shiftKey">Shift + Click</option>
+              <option value="altKey">Alt + Click</option>
+              <option value="rightClick">Right Click</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- ToggleClassDirective -->
+        <div class="examples__container">
+          <div class="examples__section">
+            <h4 class="examples__section-title">Custom Configuration Example</h4>
+            <div
+              class="examples__demo"
+              appToggleClass
+              [toggleClass]="toggleClass()"
+              [triggerEvent]="toggleTriggerEvent()"
+              [initialState]="toggleInitialState()"
+              [disabled]="toggleDisabled()"
+              [toggleMode]="toggleMode()"
+              [preventToggleWhen]="preventConditions()"
+              (toggled)="onToggleEvent($event)"
+            >
+              {{ getToggleInteractionText() }}
+            </div>
+
+            <div class="examples__info">
+              <p><strong>State:</strong> {{ getToggleState() }}</p>
+              <p><strong>Active Classes:</strong> {{ getActiveClasses() }}</p>
+              <p><strong>Recent Events:</strong> {{ getRecentEvents() }}</p>
+            </div>
+          </div>
+
+          <!-- Examples predefined -->
+          <div class="examples__section">
+            <h4 class="examples__section-title">Predefined Examples</h4>
+
+            <div class="predefined__examples">
+              <button
+                class="predefined__btn"
+                appToggleClass
+                toggleClass="btn-active"
+                triggerEvent="click"
+              >
+                🔘 Basic Toggle
+              </button>
+
+              <div
+                class="predefined__card"
+                appToggleClass
+                toggleClass="card-expanded"
+                triggerEvent="dblclick"
+                (toggled)="onCardToggle($event)"
+              >
+                🃏 Card (Double Click to Expand)
+              </div>
+
+              <input
+                class="predefined__input"
+                appToggleClass
+                toggleClass="input-focused"
+                triggerEvent="focus"
+                toggleMode="single"
+                placeholder="Focus para highlight temporal"
+              />
+
+              <div
+                class="predefined__hover"
+                appToggleClass
+                toggleClass="hover-effect"
+                triggerEvent="mouseenter"
+                toggleMode="single"
+              >
+                🖱️ Hover Effect Temporal
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      }
+    </div>
+  
